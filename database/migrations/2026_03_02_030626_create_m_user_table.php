@@ -4,25 +4,24 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
     public function up(): void
-{
-    Schema::create('m_user', function (Blueprint $table) {
-        $table->id('user_id'); // Pastikan ini titik koma (;), bukan titik dua (:)
-        $table->unsignedBigInteger('level_id')->index(); 
-        $table->string('username', 20)->unique(); 
-        $table->string('nama', 100); 
-        $table->string('password'); 
-        $table->timestamps(); 
+    {
+        Schema::create('m_user', function (Blueprint $table) {
+            $table->id('user_id'); // Primary Key
+            $table->unsignedBigInteger('level_id')->index(); // Kolom Foreign Key
+            $table->string('username', 20)->unique();
+            $table->string('nama', 100);
+            $table->string('password');
+            $table->timestamps();
 
-        // Jangan lupa definisikan foreign key-nya di bawah sini
-        $table->foreign('level_id')->references('level_id')->on('m_level');
-    });
-}
+            // Membuat Relasi ke tabel m_level
+            $table->foreign('level_id')->references('level_id')->on('m_level');
+        });
+    }
 
     /**
      * Reverse the migrations.
