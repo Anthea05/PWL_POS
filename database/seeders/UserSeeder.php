@@ -6,7 +6,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash; // Tambahkan ini untuk password
 
-class UserSeeder extends Seeder // PASTIKAN INI TULISANNYA UserSeeder, BUKAN LevelSeeder
+class UserSeeder extends Seeder 
 {
     public function run(): void
     {
