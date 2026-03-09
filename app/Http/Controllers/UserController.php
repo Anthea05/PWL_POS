@@ -8,20 +8,11 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-
     public function index()
     {
-        $data = [
-            'level_id' => 2,
-            'username' => 'manager_dua',
-            'nama' => 'Manager 2',
-            'password' => Hash::make('12345')
-        ];
+        $user = UserModel::where('level_id', 2)->count();
 
-        UserModel::create($data);
-
-        $user = UserModel::all();
+        // Kirim angka tersebut ke view [cite: 276]
         return view('user', ['data' => $user]);
     }
 }
-
