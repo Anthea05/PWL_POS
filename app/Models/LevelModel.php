@@ -4,8 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class UserModel extends Model
+class LevelModel extends Model
 {
-    protected $table = 'm_user';        // Mendefinisikan nama tabel
-    protected $primaryKey = 'user_id'; // Mendefinisikan primary key
+    protected $table = 'm_level';
+    protected $primaryKey = 'level_id';
+
 }
